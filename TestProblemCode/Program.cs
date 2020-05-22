@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Collections.Generic;
 
 namespace QuickDate
 {
@@ -27,7 +29,7 @@ namespace QuickDate
 
             Console.WriteLine(sum);
         }
-        private static void DCP70()
+        private static void DCP71()
         {
             //Good morning!Here's your coding interview problem for today.
 
@@ -46,7 +48,7 @@ namespace QuickDate
             b = b + a;
             Console.WriteLine(b);
         }
-        private static void DCP71()
+        private static void DCP72()
         {
             //Using a function rand7() that returns an integer from 1 to 7(inclusive) with uniform probability,
             //implement a function rand5() that returns an integer from 1 to 5(inclusive).
@@ -55,16 +57,92 @@ namespace QuickDate
                 Console.Write("{0,8:N0}", rand.Next(6));
             Console.WriteLine();
         }
-        private static void DCP72()
+        private static void DCP73ReverseLinkedList()
         {
             //Given the head of a singly linked list, reverse it in-place.
-        }
+            string[] lol = { "1", "2", "3", "4" };
+            LinkedList<string> bunga = new LinkedList<string>(lol);
+            Display(bunga, "Displaying the Linked List :)");
 
+            var head = bunga.First;
+            while (head.Next != null)
+            {
+                var next = head.Next;
+                bunga.Remove(next);
+                bunga.AddFirst(next.Value);
+                Display(bunga, "Displaying the Linked List :)");
+            }
+
+            //My First way of solving this. Time = O(n) but also Space = O(n) as well making it worse.
+            /*
+            List<string> reverse = new List<string>();
+            for (int i = 0; i < bunga.Count; i++)
+            {
+                reverse.Add(bunga.Last.Value);
+                bunga.AddFirst(bunga.Last.Value);
+                bunga.RemoveLast();
+
+                Display(bunga, "Displaying the Linked List :)");
+            }
+
+            foreach (string pop in reverse)
+            {
+                Console.WriteLine(pop + " ");
+            }
+            */
+        }
+        private static void Display(LinkedList<string> words, string test)
+        {
+            Console.WriteLine(test);
+            foreach (string word in words)
+            {
+                Console.Write(word + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+        private static void DCP74()
+        {
+            //This problem was asked by Apple.
+
+            //Suppose you have a multiplication table that is N by N.That is,
+            //a 2D array where the value at the i - th row and j - th column is (i + 1) * (j + 1)(if 0 - indexed) or i *j(if 1 - indexed).
+
+            //Given integers N and X, write a function that returns the number of times X appears as a value in an N by N multiplication table.
+
+            //For example, given N = 6 and X = 12, you should return 4, since the multiplication table looks like this:
+
+            //| 1 | 2 | 3 | 4 | 5 | 6 |
+
+            //| 2 | 4 | 6 | 8 | 10 | 12 |
+
+            //| 3 | 6 | 9 | 12 | 15 | 18 |
+
+            //| 4 | 8 | 12 | 16 | 20 | 24 |
+
+            //| 5 | 10 | 15 | 20 | 25 | 30 |
+
+            //| 6 | 12 | 18 | 24 | 30 | 36 |
+
+            //And there are 4 12's in the table.
+        }
+        private static void DCP75()
+        {
+            //Hard
+            //This problem was asked by Microsoft.
+
+            //Given an array of numbers, find the length of the longest increasing subsequence in the array. The subsequence does not necessarily have to be contiguous.
+
+            //For example, given the array[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
+        }
+        private static void Test()
+        {
+        }
         static void Main(string[] args)
         {
-            
-            DCP71();
-            
+
+            DCP73ReverseLinkedList();
+            //Test();
         }
 
 
