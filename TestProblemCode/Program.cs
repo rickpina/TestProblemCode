@@ -60,7 +60,7 @@ namespace QuickDate
         private static void DCP73ReverseLinkedList()
         {
             //Given the head of a singly linked list, reverse it in-place.
-            string[] lol = { "1", "2", "3", "4" };
+            string[] lol = { "1", "2", "3", "4", "5" };
             LinkedList<string> bunga = new LinkedList<string>(lol);
             Display(bunga, "Displaying the Linked List :)");
 
@@ -125,6 +125,55 @@ namespace QuickDate
             //| 6 | 12 | 18 | 24 | 30 | 36 |
 
             //And there are 4 12's in the table.
+
+
+            //Creating the table using a Jagged Array
+            const int N = 6;
+            int targetX = 12;
+            int multiples = 0;
+
+            var namelist3 = new int[N][];
+            for (int i = 0; i < N; i++)
+            {
+                namelist3[i] = new int[N];
+                int j = 0;
+                for (int k = 0; k < N; k++)
+                {
+                    namelist3[i][j] = (i + 1) * (j + 1);
+                    //Console.WriteLine(namelist3[i][j]);
+                    j++;
+                }                            
+            }
+
+            // O(logn) Found this myself. Still more optimization possibilitis but I'm happy with this for now. 
+            int q = N-1;
+            for (int i = 0; i < N; i++)
+            {
+                if(q <= -1)
+                {
+                    break;
+                }
+                if(namelist3[i][q] == targetX)
+                {
+                    Console.WriteLine("You Found a multiple.");
+                    Console.WriteLine(" The Multiple " + (i + 1) + " and " + (q + 1));
+                    multiples++;
+                }
+                if (namelist3[i][q] < targetX)
+                {
+                    Console.WriteLine("Too Low! "+ namelist3[i][q]);
+                    Console.WriteLine(" The Multiple " + (i + 1) +" and " + (q + 1));
+                    
+                }
+                else if (namelist3[i][q] > targetX)
+                {
+                    Console.WriteLine("Too High! "+ namelist3[i][q]);
+                    Console.WriteLine(" The Multiple " + (i + 1) + " and " + (q + 1));                  
+                    q--;
+                    i--;
+                }
+            }
+            Console.WriteLine("There are " + multiples + " multiples of " + targetX + " in this array of " + N + " times " + N);
         }
         private static void DCP75()
         {
@@ -136,12 +185,13 @@ namespace QuickDate
             //For example, given the array[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
         }
         private static void Test()
-        {
+        {           
         }
         static void Main(string[] args)
         {
 
-            DCP73ReverseLinkedList();
+            //DCP73ReverseLinkedList();
+            DCP74();
             //Test();
         }
 
