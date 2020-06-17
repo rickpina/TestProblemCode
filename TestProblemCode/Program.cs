@@ -101,7 +101,7 @@ namespace QuickDate
             Console.WriteLine();
             Console.WriteLine();
         }
-        private static void DCP74()
+        private static void DCP74MultiplicationTable()
         {
             //This problem was asked by Apple.
 
@@ -155,7 +155,7 @@ namespace QuickDate
                 }
                 if(namelist3[i][q] == targetX)
                 {
-                    Console.WriteLine("You Found a multiple.");
+                    Console.WriteLine("You Found a multiple of " + targetX);
                     Console.WriteLine(" The Multiple " + (i + 1) + " and " + (q + 1));
                     multiples++;
                 }
@@ -173,7 +173,7 @@ namespace QuickDate
                     i--;
                 }
             }
-            Console.WriteLine("There are " + multiples + " multiples of " + targetX + " in this array of " + N + " times " + N);
+            Console.WriteLine("There are " + multiples + " multiples of " + targetX + " in this multiplication table of " + N + " by " + N);
         }
         private static void DCP75()
         {
@@ -184,14 +184,44 @@ namespace QuickDate
 
             //For example, given the array[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
         }
-        private static void Test()
-        {           
+
+        class ListForDCP77
+        {
+            public int A { get; set; }
+            public int B { get; set; }
         }
+
+        private static void DCP77()
+        {
+            //this problem was asked by Snapchat.
+
+            //Given a list of possibly overlapping intervals, return a new list of intervals where all overlapping intervals have been merged.
+
+            //The input list is not necessarily ordered in any way.
+
+            //For example, given[(1, 3), (5, 8), (4, 10), (20, 25)], you should return [(1, 3), (4, 10), (20, 25)].
+            
+            List<ListForDCP77> goomba = new List<ListForDCP77>()
+            {
+                new ListForDCP77(){ A = 1, B = 3 },
+                new ListForDCP77(){ A = 5, B = 8 },
+                new ListForDCP77(){ A = 4, B = 10 },
+                new ListForDCP77(){ A = 20, B = 25 }
+            };
+
+
+
+
+
+
+
+        }
+
         static void Main(string[] args)
         {
 
             //DCP73ReverseLinkedList();
-            DCP74();
+            DCP74MultiplicationTable();
             //Test();
         }
 
