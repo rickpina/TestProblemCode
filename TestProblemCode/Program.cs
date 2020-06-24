@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickDate
 {
-    internal class TestProblems
+    class TestProblems
     {
         private static void FizzBuzz()
         {
@@ -184,11 +185,19 @@ namespace QuickDate
 
             //For example, given the array[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
         }
-        class ListForDCP77
+        class ListforDCP77
         {
-            public int A { get; set; }
-            public int B { get; set; }
+            public int ID { get; internal set; }
+            public int ID2 { get; internal set; }
         }
+
+        static readonly List<ListforDCP77> DCP77List = new List<ListforDCP77>
+            {
+                new ListforDCP77(){ ID = 1, ID2 = 3 },
+                new ListforDCP77(){ ID = 5, ID2 = 8 },
+                new ListforDCP77(){ ID = 4, ID2 = 10 },
+                new ListforDCP77(){ ID = 20, ID2 = 25 }
+            };
         private static void DCP77()
         {
             //this problem was asked by Snapchat.
@@ -199,20 +208,37 @@ namespace QuickDate
 
             //For example, given[(1, 3), (5, 8), (4, 10), (20, 25)], you should return [(1, 3), (4, 10), (20, 25)].
             
-            List<ListForDCP77> goomba = new List<ListForDCP77>()
+            
+
+            //This is a solution I guess. Too lazy to make better :)
+            var goomba = DCP77List;
+
+            for (int i = 0; i < DCP77List.Count; i++)
             {
-                new ListForDCP77(){ A = 1, B = 3 },
-                new ListForDCP77(){ A = 5, B = 8 },
-                new ListForDCP77(){ A = 4, B = 10 },
-                new ListForDCP77(){ A = 20, B = 25 }
-            };
-
-
-
-
-
-
-
+                //Console.WriteLine(goomba[i].ID);
+                //Console.WriteLine(goomba[i].ID2);
+                try
+                {
+                    if (goomba[i].ID >= goomba[i + 1].ID)
+                    {
+                        goomba[i].ID = 0;
+                        goomba[i].ID2 = 0;
+                        i--;
+                    }
+                }
+                catch
+                {
+                    continue;
+                }
+   
+                
+            }
+            //&& goomba[i + 1].ID < DCP77List.Count
+            for (int i = 0; i < DCP77List.Count; i++)
+            {
+                Console.WriteLine(goomba[i].ID);
+                Console.WriteLine(goomba[i].ID2);
+            }
         }
 
 
@@ -221,7 +247,8 @@ namespace QuickDate
         {
 
             //DCP73ReverseLinkedList();
-            DCP74MultiplicationTable();
+            //DCP74MultiplicationTable();
+            DCP77();
             //Test();
         }
 
