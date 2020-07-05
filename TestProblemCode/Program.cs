@@ -195,6 +195,7 @@ namespace QuickDate
             {
                 new ListforDCP77(){ ID = 1, ID2 = 3 },
                 new ListforDCP77(){ ID = 5, ID2 = 8 },
+                new ListforDCP77(){ ID = 2, ID2 = 100 },
                 new ListforDCP77(){ ID = 4, ID2 = 10 },
                 new ListforDCP77(){ ID = 20, ID2 = 25 }
             };
@@ -219,7 +220,7 @@ namespace QuickDate
                 //Console.WriteLine(goomba[i].ID2);
                 try
                 {
-                    if (goomba[i].ID >= goomba[i + 1].ID)
+                    if (goomba[i].ID >= goomba[i + 1].ID || goomba[i].ID2 >= goomba[i + 1].ID2)
                     {
                         goomba[i].ID = 0;
                         goomba[i].ID2 = 0;
@@ -248,8 +249,9 @@ namespace QuickDate
 
             //DCP73ReverseLinkedList();
             //DCP74MultiplicationTable();
-            DCP77();
+            //DCP77();
             //Test();
+
         }
 
 
