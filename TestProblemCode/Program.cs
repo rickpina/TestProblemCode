@@ -185,7 +185,6 @@ namespace QuickDate
 
             //For example, given the array[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
         }
-
         private static void DCP76()
         {
             /*[Medium]
@@ -295,13 +294,11 @@ namespace QuickDate
             Console.WriteLine("This is how many rows should be deleted: " + deletablerows);
             Console.WriteLine("This was a O(n^2) solution.");
         }
-
         class ListforDCP77
         {
             public int ID { get; internal set; }
             public int ID2 { get; internal set; }
         }
-
         static readonly List<ListforDCP77> DCP77List = new List<ListforDCP77>
             {
                 new ListforDCP77(){ ID = 1, ID2 = 3 },
@@ -352,7 +349,6 @@ namespace QuickDate
                 Console.WriteLine(goomba[i].ID2);
             }
         }
-
         private static void DCP80()
         {
             //Good morning!Here's your coding interview problem for today.
@@ -364,7 +360,6 @@ namespace QuickDate
             // /
             //d
         }
-
         private static void ReverseStringWithoutInbuiltMethod(string stringInput)
         {
             // Reverse using While loop  
@@ -383,7 +378,6 @@ namespace QuickDate
             Console.ReadLine();
 
         }
-
         private static void DataStructures()
         {
             Dictionary<string, string> openWith = new Dictionary<string, string>();
@@ -405,15 +399,36 @@ namespace QuickDate
 
             Console.WriteLine("For key = \"rtf\", value = {0}.", openWith["rtf"]);
         }
+        private static bool IsUnique(String str)
+        {
+            Console.WriteLine("This solution is O(n) Time and O(1) Space");
+            if (str.Length > 128)
+            {
+                Console.WriteLine("False");
+                return false;
+            }
+            
+            bool[] charset = new bool[128];
+            for(int i = 0; i < str.Length; i++)
+            {
+                int val = str.ElementAt(i);
+                if (charset[val])
+                {
+                    Console.WriteLine("False");
+                    return false;
+                }
+                charset[val] = true;
+            }
+            Console.WriteLine("True");
+            return true;
+        }
 
         static void Main(string[] args)
         {
 
             //DCP73ReverseLinkedList();
             //DCP74MultiplicationTable();
-            DCP76();          
-            //DataStructures();
-
+            //DCP76();          
         }
 
 
