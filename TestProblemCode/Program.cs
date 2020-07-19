@@ -422,13 +422,109 @@ namespace QuickDate
             Console.WriteLine("True");
             return true;
         }
+        private static string URLify(String str, int strlength)
+        {
+            string newstring = str.TrimEnd();
+
+            string easymethod = newstring.Replace(@" ", "%20");
+
+            Console.WriteLine("I will never get asked this because .Replace exists.");
+
+            return easymethod;
+
+        //    for(int i = 0; i < strlength; i++)
+        //    {
+        //        int val = newstring[i];
+
+        //        if (val == 32)
+        //        {
+        //            string urlString = newstring.Replace(newstring[i], '%');
+        //            return urlString;                    
+        //        }
+        //    }
+        //    return newstring;
+        //
+        }
+        private static bool OneAway(String str1, String str2)
+        {
+            if(str1.Length == str2.Length)
+            {
+                bool foundDif = false;
+                for (int i = 0; i < str1.Length; i++)
+                {
+                    if (str1[i] != str2[i])
+                    {
+                        if (foundDif)
+                        {
+                            return false;
+                        }
+                        foundDif = true;
+                    }
+                }
+                return true;
+            }
+
+            if(str1.Length - str2.Length == 1 || str1.Length - str2.Length == -1)
+            {
+                int iOne = 0;
+                int iTwo = 0;
+
+                while (iTwo < str2.Length && iOne < str1.Length)
+                {
+                    if(str1[iOne] != str2[iTwo])
+                    {
+                        if(iOne != iTwo)
+                        {
+                            return false;
+                        }
+                        iOne++;
+                    }
+                    else
+                    {
+                        iOne++;
+                        iTwo++;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        private static string StringCompression(String s1)
+        {
+            // This is a O(n) Time and Space Solution
+
+            char temp = s1.ElementAt(0);
+            int count = 0;
+            List<string> cstring = new List<string>();
+
+            for (int i = 0; i < s1.Length; i++)
+            {
+                if (temp == s1.ElementAt(i))
+                {
+                    count++;
+                }
+                else if (temp != s1.ElementAt(i))
+                {
+                    cstring.Add("" + temp + count);
+                    temp = s1.ElementAt(i);                   
+                    count = 1;
+                }                                                 
+            }
+
+            cstring.Add("" + temp + count);
+
+            string finalstring = string.Join("", cstring.ToArray());
+            return finalstring;
+        }
 
         static void Main(string[] args)
         {
 
             //DCP73ReverseLinkedList();
             //DCP74MultiplicationTable();
-            //DCP76();          
+            //DCP76();   
+            Console.WriteLine(StringCompression("aabcccccaaa"));
+            
         }
 
 
