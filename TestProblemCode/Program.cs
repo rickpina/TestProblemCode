@@ -513,7 +513,7 @@ namespace QuickDate
 
             cstring.Add("" + temp + count);
 
-            string finalstring = string.Join("", cstring.ToArray());
+            string finalstring = string.Join("", cstring);
             return finalstring;
         }
         private static void RotateMatrix()
@@ -565,8 +565,9 @@ namespace QuickDate
 
             //DCP73ReverseLinkedList();
             //DCP74MultiplicationTable();
-            //DCP76();   
-            RotateMatrix();
+            //DCP76(); 
+            Console.WriteLine(StringCompression("boom"));
+            
             
         }
 
