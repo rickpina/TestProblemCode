@@ -62,11 +62,11 @@ namespace QuickDate
         static void Main(string[] args)
         {
 
-            //ZeroMatrixSolution.ZeroMatrix(CreateMatrix.RandomMatrix(10,10), 10, 10);
+            ZeroMatrixSolution.ZeroMatrix(CreateMatrix.RandomMatrix(10, 10), 10, 10);
             //Console.WriteLine(StringCompression("wwooww"));
-            //Console.Read();
-            
-            
+            Console.Read();
+
+
         }
 
     }
