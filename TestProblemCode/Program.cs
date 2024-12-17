@@ -63,10 +63,10 @@ namespace QuickDate
         {
 
             //ZeroMatrixSolution.ZeroMatrix(CreateMatrix.RandomMatrix(10, 10), 10, 10);
-            UniqueProductCombinations.FindUniqueProducts();
+            //UniqueProductCombinations.FindUniqueProducts();
             //Console.WriteLine(StringCompression("wwooww"));
-            Console.Read();
-
+            //Console.Read();
+            //SubsetsOfASet.GenerateSubsets(1, 2, 3);
 
         }
 
