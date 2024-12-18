@@ -67,7 +67,7 @@ namespace QuickDate
             //Console.WriteLine(StringCompression("wwooww"));
             //Console.Read();
             //SubsetsOfASet.GenerateSubsets(1, 2, 3);
-
+            RecursiveFibonacci.Display();
         }
 
     }
